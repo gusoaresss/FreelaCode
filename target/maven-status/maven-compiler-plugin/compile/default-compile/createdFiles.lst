@@ -1,0 +1,7 @@
+com\view\freelacademy\View.class
+com\view\freelacademy\Curriculo.class
+com\view\freelacademy\LoginView.class
+com\view\freelacademy\TelaCadastro.class
+com\view\freelacademy\LoginView$1.class
+Controller\FreelancerController.class
+Model\Freelancer.class
