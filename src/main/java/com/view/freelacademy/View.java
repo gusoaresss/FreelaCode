@@ -25,7 +25,7 @@ public class View extends JFrame {
     
         //botão para abrir a tela de login
         JButton btnOpenLogin = new JButton("Fazer login");
-        btnOpenLogin.addActionListener((ActionEvent e) -> {
+        btnOpenLogin.addActionListener((ActionEvent e) ->{
             new LoginView().setVisible(true);
             dispose();
         });
