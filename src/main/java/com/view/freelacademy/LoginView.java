@@ -6,12 +6,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.prefs.Preferences;
 
+
+
+
 public class LoginView extends JFrame {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new LoginView().setVisible(true));
+    }
+    
     private JTextField txtUsername;
     private JPasswordField txtPassword;
     private JCheckBox chkRemember;
     private JButton btnLogin;
     private Preferences prefs;
+    
+    
     
     public LoginView() {
         setTitle("Login");
@@ -68,6 +77,8 @@ public class LoginView extends JFrame {
                 throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         });
+        
+        
     }
 
     }
