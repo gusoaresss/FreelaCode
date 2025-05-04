@@ -32,6 +32,7 @@ public class Curriculo extends JFrame {
         painelCadastro.add(new JLabel("Telefone:"));
         painelCadastro.add(telefoneField);
         painelCadastro.add(new JLabel("Experiência:"));
+        painelCadastro.add(experienciaArea);
         
 
         JButton btnSalvar = new JButton("Salvar");
