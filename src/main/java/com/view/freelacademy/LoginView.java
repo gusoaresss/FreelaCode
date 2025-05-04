@@ -6,41 +6,68 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.prefs.Preferences;
 
-public class LoginView {
+
+
+
+public class LoginView extends JFrame {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new LoginView().setVisible(true));
+    }
+    
     private JTextField txtUsername;
     private JPasswordField txtPassword;
     private JCheckBox chkRemember;
     private JButton btnLogin;
     private Preferences prefs;
     
+    
+    
     public LoginView() {
         setTitle("Login");
-        setSize(300, 200);
+        setSize(400, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new GridLayout(4, 2));
+        setLayout(new BorderLayout());
+       
+        //logo
+   
+        
+        
+        
+        
+        
         
         // Inicializa as preferências do sistema
         prefs = Preferences.userRoot().node(this.getClass().getName());
 
         // Componentes da tela
+        
+        JPanel panelCenter = new JPanel (new GridLayout(5,1,10,10));
         JLabel lblUsername = new JLabel("Usuário:");
         txtUsername = new JTextField(prefs.get("username", ""));
         JLabel lblPassword = new JLabel("Senha:");
         txtPassword = new JPasswordField(prefs.get("password", ""));
         chkRemember = new JCheckBox("Lembrar credenciais");
-        chkRemember.setSelected(!txtUsername.getText().isEmpty());
-        btnLogin = new JButton("Entrar");
+        
+       
         
         // Adicionando componentes
-        add(lblUsername);
-        add(txtUsername);
-        add(lblPassword);
-        add(txtPassword);
-        add(chkRemember);
-        add(new JLabel()); // Espaço vazio
-        add(btnLogin);
+        panelCenter.add(lblUsername);
+        panelCenter.add(txtUsername);
+        panelCenter.add(lblPassword);
+        panelCenter.add(txtPassword);
+        panelCenter.add(chkRemember);
+      
+        
+        add(panelCenter, BorderLayout.CENTER);
 
+        
+        JPanel panelBottom = new JPanel();
+    btnLogin = new JButton("Entrar");
+    panelBottom.add(btnLogin);
+    add(panelBottom, BorderLayout.SOUTH);
+        
+       
         // Evento de login
         
         btnLogin.addActionListener(new ActionListener() {
@@ -68,45 +95,8 @@ public class LoginView {
                 throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         });
+        
+        
     }
 
-    private void add(JTextField lblUsername) {
-        add(lblUsername);
     }
-
-    private void add(JLabel lblUsername) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void add(JCheckBox chkRemember) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void add(JButton btnLogin) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void setTitle(String login) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void setSize(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void setDefaultCloseOperation(int EXIT_ON_CLOSE) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void setLocationRelativeTo(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void setLayout(GridLayout gridLayout) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    void setVisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-}

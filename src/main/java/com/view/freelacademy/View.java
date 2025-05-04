@@ -11,32 +11,34 @@ public class View extends JFrame {
     
     public View() {
         setTitle("Freelancer App");
-        setSize(600, 400);
+        setSize(900, 900);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
         // Layout básico
         JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-        
-         JLabel label = new JLabel("Bem-vindo ao Freelancer App!", SwingConstants.CENTER);
-        panel.add(label, BorderLayout.CENTER);
-
-    
-        //botão para abrir a tela de login
-        JButton btnOpenLogin = new JButton("Fazer login");
-        btnOpenLogin.addActionListener((ActionEvent e) -> {
-            new LoginView().setVisible(true);
-            dispose();
-        });
-        panel.add(btnOpenLogin, BorderLayout.SOUTH);
-        
-        
-        setContentPane(panel);
+        panel.setLayout(new BorderLayout());       
+       
+            JPanel painelEsquerda = new JPanel(null);
+            painelEsquerda.setPreferredSize(new Dimension(380, 300)); 
+            painelEsquerda.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 0));
+                    
+            JButton btnCurriculo = new JButton("Criar/Alterar Currículo");
+            btnCurriculo.setBounds(20, 50, 180, 40); 
+            btnCurriculo.addActionListener(e -> new Curriculo().setVisible(true));
+            painelEsquerda.add(btnCurriculo);
+            
+            
+            JButton btnVerCurriculos = new JButton("Ver seu currículo atual");
+            btnVerCurriculos.setBounds(180, 50, 190, 40); 
+            btnVerCurriculos.addActionListener(e -> new Curriculo().setVisible(true));
+            painelEsquerda.add(btnVerCurriculos);
+            
+            
+            panel.add(painelEsquerda, BorderLayout.WEST);
+            setContentPane(panel);
     }
-    public static void main(String[] args) {
-            SwingUtilities.invokeLater(() -> new View().setVisible(true));
-        }
+    
 }
     
 
